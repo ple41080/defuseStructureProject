@@ -35,7 +35,6 @@ export default function userMag() {
                     <Button icon={<EyeOutlined />} className={' bg-sky-500'} onClick={showModal} type="primary">
                         Info
                     </Button>
-
                 </Space>
             ),
         },
@@ -91,9 +90,6 @@ export default function userMag() {
 
             </header>
             <main>
-
-
-
                 <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
                     <div className=' float-right'>
                         <button type="button" onClick={showModal2} class=" mr-5 text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
