@@ -117,7 +117,7 @@ export default function demo() {
                             onClick={showInput}
                             type="primary"
                         >
-                            Open Modal
+                            เพิ่มข้อมูล
                         </button>
                     </div>
 
