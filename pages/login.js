@@ -17,8 +17,8 @@ export default function login() {
                         <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
                             เข้าสู่ระบบ
                         </h2>
-                        <h4 class=" font-bold text-red-800 text-center">ระบบนิเทศนักศึกษาสหกิจศึกษา</h4>
-                        <p class="text-center text-rose-600 relative">คณะเทคโนโลยีอุตสหกรรม มหาวิทยาลัยราชภัฎเลย</p>   
+                        <h4 className=" font-bold text-red-800 text-center">ระบบนิเทศนักศึกษาสหกิจศึกษา</h4>
+                        <p className="text-center text-rose-600 relative">คณะเทคโนโลยีอุตสหกรรม มหาวิทยาลัยราชภัฎเลย</p>   
 
                     </div>
                     <form className="mt-8 space-y-6" action="#" method="POST">
@@ -74,8 +74,8 @@ export default function login() {
                 {/* <div className='backdrop-grayscale-0 bg-white/30 ...'>
                 <div className=' max-w-xl rounded overflow-hidden shadow-lg  ml-12 mt-10 ' style={{ height:"500px",width:"800px" ,backgroundImage: `url("https://lru.ac.th/th/wp-content/uploads/2021/01/333964_168149796611205_1366741102_o-800x445.jpg")`,backgroundSize:"cover"}}
                   >      <span className='' style={{ height:"px", width:"800px" }}></span>
-                        <h4 class=" font-bold text-red-700 text-center  " style={{ marginTop:"40%" }}>ระบบนิเทศนักศึกษาสหกิจศึกษา</h4>
-                        <p class="text-center text-white relative">คณะเทคโนโลยีอุตสหกรรม มหาวิทยาลัยราชภัฎเลย</p>   
+                        <h4 className=" font-bold text-red-700 text-center  " style={{ marginTop:"40%" }}>ระบบนิเทศนักศึกษาสหกิจศึกษา</h4>
+                        <p className="text-center text-white relative">คณะเทคโนโลยีอุตสหกรรม มหาวิทยาลัยราชภัฎเลย</p>   
                 </div>
                 </div> */}
                
