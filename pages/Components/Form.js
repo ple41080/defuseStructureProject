@@ -31,7 +31,7 @@ export default function Form1() {
                 onFinishFailed={onFinishFailed}
                 autoComplete="off"
             >
-                <div class="grid gap-6 mb-6 md:grid-cols-2" >
+                <div class="grid gap-6 mb-1 md:grid-cols-2" >
                     <div className='w-full'>
                         <label for="firstName-input">ชื่อ</label>
                         <Form.Item
@@ -61,7 +61,8 @@ export default function Form1() {
                         </Form.Item>
                     </div>
                 </div>
-                <div class="grid gap-6 mb-6 md:grid-cols-2 " style={{ marginTop: -30, }} >
+                <div class="grid gap-6 mb-1 md:grid-cols-2 ';
+                 "  >
                     <div className='w-full'>
                         <label>เลือกวันที่</label>
                         <Form.Item 
@@ -93,7 +94,7 @@ export default function Form1() {
                         </Form.Item>
                     </div>
                 </div>
-                <div class="grid gap-6 mb-6 md:grid-cols-2 " style={{ marginTop: -30, }} >
+                <div class="grid gap-6 mb-1 md:grid-cols-2 "  >
                     
                     <div className='w-full'>
                         <label>ที่อยู่</label>
@@ -116,7 +117,7 @@ export default function Form1() {
 
                     </div>
                 </div>
-                <div class="grid gap-6 mb-6 md:grid-cols-2 " style={{ marginTop: -30, }}>
+                <div class="grid gap-6 mb-1 md:grid-cols-2 " >
                 <div className='w-full'>
                         <label>เลือกตัวเลข</label>
                         <Form.Item name="number" valuePropName="checked" >
