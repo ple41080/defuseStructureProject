@@ -3,17 +3,17 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Dashboard', href: '/', current: true ,key:'item-1'},
-  { name: 'Team', href: '#', current: false ,key:'item-2'},
-  { name: 'Projects', href: '#', current: false ,key:'item-3'},
-  { name: 'Calendar', href: '#', current: false ,key:'item-4'},
+  { name: 'Dashboard', href: '/users/', current: true, key: 'item-1' },
+  { name: 'Team', href: '#', current: false, key: 'item-2' },
+  { name: 'Projects', href: '#', current: false, key: 'item-3' },
+  { name: 'Calendar', href: '#', current: false, key: 'item-4' },
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Navbar() {
+export default function UserNavbar() {
   return (
     <Disclosure as="nav" className="bg-gray-800 sticky">
       {({ open }) => (
@@ -84,7 +84,7 @@ export default function Navbar() {
                       {/* <p className=' text-white text-center mx-3 mt-1 '> อัฐพล พลฤทธิ์</p>  */}
                       {/* section fate data */}
                     </Menu.Button>
-                   
+
                   </div>
                   <Transition
                     as={Fragment}

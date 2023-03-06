@@ -17,7 +17,7 @@ export default function register() {
                         <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-white">
                             ลงทะเบียนใช้งาน
                         </h2>
-                        <p class="text-lead text-center text-white">นักศึกษาสามารถลงทะเบียนเพื่อใช้งานระบบ โดยกรอกข้อมูลด้านล่างให้ครบ
+                        <p className="text-lead text-center text-white">นักศึกษาสามารถลงทะเบียนเพื่อใช้งานระบบ โดยกรอกข้อมูลด้านล่างให้ครบ
                         </p>
 
                     </div>
