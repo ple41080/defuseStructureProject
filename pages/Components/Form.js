@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Checkbox, Form, Input, Radio } from 'antd';
+import { Button, Checkbox, Form, Input, Radio, Select } from 'antd';
 import { DatePicker, Space } from 'antd';
 
 
@@ -18,6 +18,17 @@ export default function Form1() {
     const onChange = (date, dateString) => {
         console.log(date, dateString);
     };
+
+    const handleChange = (value) => {
+        console.log(`selected ${value}`);
+      };
+
+      const statusOptions =[
+        {value:"option1",label:"option 1"  },
+        {value:"option3",label:"option 2"  },
+        {value:"option2",label:"option 3"  }
+    ]
+   
 
     return (
         <>
@@ -49,13 +60,7 @@ export default function Form1() {
                     <div className='w-full'>
                         <label for="lastName-input" >นามสกุล</label>
                         <Form.Item
-                            name="lastName"
-                            rules={[
-                                {
-                                    required: true,
-                                    message: 'กรุณาใส่นามสกุล!',
-                                },
-                            ]}
+                           
                         >
                             <Input className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
                         </Form.Item>
@@ -72,7 +77,13 @@ export default function Form1() {
                             <space 
                             direction="vertical"
                             >
-                                <DatePicker 
+                                <Date name="lastName"
+                            rules={[
+                                {
+                                    required: true,
+                                    message: 'กรุณาใส่นามสกุล!',
+                                },
+                            ]}Picker 
                                 onChange={onChange}
                                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                  />
@@ -85,7 +96,8 @@ export default function Form1() {
                             name="sub_id"
                             rules={[{ required: true, message: 'กรุณาเลือกสาขา' }]}
                         >
-                            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select id="countries"
+                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>เลือกสาขา</option>
                                 <option value="1">ชื่อสาขา</option>
                                 <option value="2">ชื่อสาขา</option>
@@ -125,6 +137,28 @@ export default function Form1() {
                             <Checkbox>2</Checkbox> <br />
                             <Checkbox>3</Checkbox> <br />
                             <Checkbox>4</Checkbox> <br />
+                        </Form.Item>
+
+                    </div>
+                    <div className='w-full'>
+                        <label>เลือกตัวเลข</label>
+                        <Form.Item 
+                        name="selectnumber" 
+                        rules={[
+                            {
+                                required: true,
+                                message: 'กรุณาใส่เลข!',
+                            },
+                        ]}
+                        >
+                           <Select
+    defaultValue="lucy"
+    style={{
+      width: 200,
+    }}
+    onChange={handleChange}
+    options={[statusOptions ]}
+  />
                         </Form.Item>
 
                     </div>
