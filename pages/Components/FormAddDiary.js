@@ -47,52 +47,59 @@ export default function FormAddDiary() {
                 action='#'>
 
                 <div className='w-full mt-2'>
-                    <lable className="block mb-2 text-sm font-medium text-gray-900  dark:text-white">รายการปฏิบัติงานประจำวันที่</lable>
-                    <Form.Item
+                    <label className="block mb-2 text-sm font-medium text-gray-900  dark:text-white">รายการปฏิบัติงานประจำวันที่
+                        <Form.Item
 
-                        name={"diary_date"}
-                        rules={[{ required: true, message: "เลือกวันที่" }]}>
+                            name={"diary_date"}
+                            rules={[{ required: true, message: "เลือกวันที่" }]}>
 
-                        <Input type='date' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
-                    </Form.Item>
+                            <Input type='date' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                        </Form.Item>
+                    </label>
                 </div>
 
                 <div className='w-full mt-2'>
-                    <lable className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> เวลาเข้างาน</lable>
-                    <Form.Item
-                        name={"in_time"}
-                        rules={[{ required: true, message: "กรอกเวลาเข้างาน" }]}>
+                    <label className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> เวลาเข้างาน
+                        <Form.Item
+                            name={"in_time"}
+                            rules={[{ required: true, message: "กรอกเวลาเข้างาน" }]}>
 
-                        <Input type='time' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
-                    </Form.Item>
+                            <Input type='time' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                        </Form.Item>
+                    </label>
                 </div>
                 <div className=' w-full mt-2'>
-                    <lable className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> เวลาออกงาน</lable>
-                    <Form.Item
-                        name={"out_time"}
-                        rules={[{ required: true, message: "กรอกเวลาออกงาน" }]}>
+                    <label className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> เวลาออกงาน
+                        <Form.Item
+                            name={"out_time"}
+                            rules={[{ required: true, message: "กรอกเวลาออกงาน" }]}>
 
-                        <Input type='time' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
-                    </Form.Item>
+                            <Input type='time' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
+                        </Form.Item>
+                    </label>
                 </div>
                 <div className='w-full'>
-                    <lable className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> รายละเอียด</lable>
-                    <Form.Item name={['user', 'introduction']} >
-                        <Input.TextArea style={{ height: 100 }} />
-                    </Form.Item>
+                    <label className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> รายละเอียด
+                        <Form.Item name={['user', 'introduction']} >
+                            <Input.TextArea style={{ height: 100 }} />
+                        </Form.Item>
+                    </label>
                 </div>
                 <div className='w-full mt-2  justify-self-center'>
-                    <label className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> แนบรูปภาพ</label>
-                    <Upload
+                    <label className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> แนบรูปภาพ   </label>
+                        <Upload
 
-                        listType="picture-card"
-                        fileList={fileList}
-                        onPreview={handlePreview}
-                        onChange={handleChange}
-                        className="justify-self-center"
-                    >
-                        {fileList.length >= 8 ? null : uploadButton}
-                    </Upload>
+                            listType="picture-card"
+                            fileList={fileList}
+                            onPreview={handlePreview}
+                            onChange={handleChange} 
+                            className="justify-self-center"
+                        >
+                            {fileList.length >= 8 ? null : uploadButton}
+                        </Upload>
+                       
+
+                    
                     <Modal open={previewOpen} title={previewTitle} footer={null} onCancel={handleCancel} className="justify-self-center mx-10">
                         <img
                             alt="example"
@@ -102,12 +109,13 @@ export default function FormAddDiary() {
                             src={previewImage}
                         />
                     </Modal>
+
                 </div>
-             
+
                 <div className='w-full mt-2'>
-                        <button className='w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>
-                            บันทึกข้อมูล
-                        </button>
+                    <button className='w-full text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2'>
+                        บันทึกข้อมูล
+                    </button>
                 </div>
 
             </Form>

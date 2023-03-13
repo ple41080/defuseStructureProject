@@ -33,7 +33,7 @@ export default function FormEditUser(data) {
 
                 <div className='w-full mt-2'>
 
-                    <lable className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> Username</lable>
+                    <label className="block mb-2 text-sm font-medium text-gray-900  dark:text-white"> Username
                     <Form.Item
                         name={"username"}
                         rules={[{ required: true, message: "กรุณากรอก Username" }]}
@@ -41,9 +41,10 @@ export default function FormEditUser(data) {
                     >
                         <Input className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                     </Form.Item>
+                    </label>
                 </div>
                 <div className='w-full mt-2 '>
-                    <lable className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Password</lable>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"> Password
                     <Form.Item
 
                         name={"password"}
@@ -51,10 +52,11 @@ export default function FormEditUser(data) {
                     >
                         <Input type='password' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                     </Form.Item>
+                    </label>
                 </div>
 
                 <div className=' w-1/2  mt-2 '>
-                    <lable className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ชื่อภาษาไทย</lable>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ชื่อภาษาไทย
                     <Form.Item
 
                         name={"fname_TH"}
@@ -62,9 +64,10 @@ export default function FormEditUser(data) {
                     >
                         <Input className=' bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                     </Form.Item>
+                    </label>
                 </div>
                 <div className="w-1/2 mt-2 ">
-                    <lable className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">นามสกุลภาษาไทย</lable>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">นามสกุลภาษาไทย
                     <Form.Item
 
                         name={"lname_TH"}
@@ -72,10 +75,11 @@ export default function FormEditUser(data) {
                     >
                         <Input className=' justify-self-end bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' />
                     </Form.Item>
+                    </label>
                 </div>
 
                 <div className="w-1/2 mt-2 ">
-                    <lable className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">สาขาวิชา</lable>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">สาขาวิชา
                     <Form.Item
                         name={"branch_id"}
                         rules={[{ required: true, message: "กรุณากรอกสาขาวิชา" }]}
@@ -90,9 +94,10 @@ export default function FormEditUser(data) {
                         >
                         </Select>
                     </Form.Item>
+                    </label>
                 </div>
                 <div className="w-1/2 mt-2 ">
-                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ระดับผู้ใช้งาน</label>
+                    <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ระดับผู้ใช้งาน
                     <Form.Item
                         name={"status"}
                         rules={[{ required: true, message: "กรุณาเลือก ระดับผู้ใช้งาน" }]}
@@ -106,6 +111,7 @@ export default function FormEditUser(data) {
                             defaultValue="1">
                         </Select>
                     </Form.Item>
+                    </label>
                 </div>
 
                 <div className="w-full mt-5 ">

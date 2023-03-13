@@ -4,7 +4,7 @@ import { Card, Col, Row } from 'antd'
 import { UsergroupAddOutlined } from '@ant-design/icons';
 import UserNavbar from '../Components/UserNavbar';
 
-export default function userIndex() {
+export default function formList() {
     return (
         <>
             <div>
@@ -20,9 +20,9 @@ export default function userIndex() {
                         <Row>
                             <Col style={{ width: "300px" }}>
                                 <div className='w-full  inline-block px-1 mt-1 '>
-                                    <a href='/users/listDiary'>
+                                    <a href='/users/formInTP_08'>
                                         <Card className=' hover:bg-slate-400'>
-                                            <p className='text-center'> <UsergroupAddOutlined style={{ fontSize: "" }} />  รายการบันทึกการปฎิบัติงานประจำวัน</p>
+                                            <p className='text-center'> <UsergroupAddOutlined style={{ fontSize: "" }} />  inTP-08</p>
                                         </Card>
 
                                     </a>
@@ -30,16 +30,19 @@ export default function userIndex() {
                             </Col>
                             <Col style={{ width: "300px" }}>
                                 <div className='w-full  inline-block px-1 mt-1 '>
-                                    <a href='/users/formList'>
+                                    <a href='/users/formInTP_09'>
                                         <Card className=' hover:bg-slate-400'>
-                                            <p className='text-center'> <UsergroupAddOutlined style={{ fontSize: "" }} />แบบฟอร์มประเมินนักศึกษา</p>
+                                            <p className='text-center'> <UsergroupAddOutlined style={{ fontSize: "" }} />  inTP-09</p>
                                         </Card>
 
                                     </a>
                                 </div>
-                            </Col> 
+                            </Col>
+                           
+                           
                         </Row>
                     </div>
+
                 </div>
             </div>
         </>

@@ -1,9 +1,9 @@
 import { Table, Select, Button, Input, Modal } from 'antd';
 import React from 'react'
-import StudentNavbar from '../Components/StudentNavbar'
+import StudentNavbar from '../components/StudentNavbar'
 import { EyeOutlined, SettingOutlined } from '@ant-design/icons';
 import { useState } from 'react';
-import FormAddDiary from '../Components/FormAddDiary';
+import FormAddDiary from '../components/FormAddDiary';
 
 
 export default function studentIndex() {

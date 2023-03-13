@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import Navbar from '../Components/Navbar';
+import Navbar from '../components/Navbar';
 import { Space, Table, Tag, Button, Modal, Form, Input, Select } from 'antd';
 import { EyeOutlined, SettingOutlined } from '@ant-design/icons';
-import FormAddStudent from '../Components/FormAddStudent';
-import FormEditStudent from '../Components/FormEditStudent';
+import FormAddStudent from '../components/formAddStudent';
+import FormEditStudent from '../components/FormEditStudent';
 const size = "large"
 export default function studentMag() {
     const iconSize = "large"

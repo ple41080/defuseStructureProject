@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Row } from 'antd'
 import { UsergroupAddOutlined } from '@ant-design/icons';
-import Navbar from './Components/Navbar';
+import Navbar from './components/Navbar';
 
 
 
