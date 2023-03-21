@@ -54,6 +54,15 @@ export default function Index() {
                 </a>
               </div>
             </Col>
+            <Col style={{ width:"300px" }}>
+              <div className='w-full inline-block px-1 mt-1'>
+                <a href='/admin/generalMag'>
+                  <Card className=' hover:bg-slate-400'>
+                    <p className='text-center'> <UsergroupAddOutlined  />  General Management</p>
+                  </Card>
+                </a>
+              </div>
+            </Col>
           </Row>
           </div>
          

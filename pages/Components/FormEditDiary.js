@@ -1,7 +1,6 @@
 import { Form, Input, message, Upload, Modal } from 'antd'
 import React, { useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons';
-import ReactQuill from 'react-quill';
 import dynamic from 'next/dynamic';
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
@@ -57,7 +56,7 @@ const getBase64 = (file) =>
     });
 
 
-export default function FormAddDiary() {
+export default function FormEditDiary() {
     const [value, setValue] = useState('');
     const [previewOpen, setPreviewOpen] = useState(false);
     const [previewImage, setPreviewImage] = useState('');

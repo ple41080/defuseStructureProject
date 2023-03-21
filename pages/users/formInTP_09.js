@@ -22,31 +22,31 @@ export default function formInTP_09() {
 
         },
         {
-            key: '1.1',
+            key: 'score1_1',
             columnName: '1.1 การออกแบบและวางแผนงาน',
         },
         {
-            key: '1.2',
+            key: 'score1_2',
             columnName: '1.2 ความรู้ในงานที่ปฏิบัติ',
         },
         {
-            key: '1.3',
+            key: 'score1_3',
             columnName: '1.3 ความพร้อมในงานที่ปฏิบัติ',
         },
         {
-            key: '1.4',
+            key: 'score1_4',
             columnName: '1.4 ความรับผิดชอบของงานที่ปฏิบัติ',
         },
         {
-            key: '1.5',
+            key: 'score1_5',
             columnName: '1.5 ความสามารถในการบริหารงานที่ปฏิบัติ',
         },
         {
-            key: '1.6',
+            key: 'score1_6',
             columnName: '1.6 ความถูกต้องของผลงานที่ปฏิบัติ',
         },
         {
-            key: '1.7',
+            key: 'score1_7',
             columnName: '1.7 การประเมิณและสรุปผลการปฏิบัติงาน',
         },
         {
@@ -54,15 +54,15 @@ export default function formInTP_09() {
             columnName: '2. ปริมาณการทำงาน (Quantity of Work)',
         },
         {
-            key: '2.1',
+            key: 'score2_1',
             columnName: '2.1 เวลาที่ใช้ในการปฏิบัติงาน',
         },
         {
-            key: '2.2',
+            key: 'score2_2',
             columnName: '2.2 ปริมาณงานต่อเวลา',
         },
         {
-            key: '2.3',
+            key: 'score2_3',
             columnName: '2.3 การใช้เวลาให้เกิดประโยชน์อื่น',
         }
      
@@ -84,7 +84,7 @@ export default function formInTP_09() {
                     title: '5',
 
                     render: (text) =>
-                        <Form.Item name={text.columnName} key={text.key} >
+                        <Form.Item name={text.key} key={text.key} >
                             <Space size="middle">
                                 <input type={'radio'} name={text.key} value={5} />
                             </Space>
@@ -106,7 +106,7 @@ export default function formInTP_09() {
                 {
                     title: '4',
                     render: (text) =>
-                        <Form.Item name={text.columnName} key={text.key}>
+                        <Form.Item name={text.key} key={text.key}>
                             <Space size="middle">
                             <input type={'radio'} name={text.key} value={4}/>
                             </Space>
@@ -129,7 +129,7 @@ export default function formInTP_09() {
                     title: '3',
 
                     render: (text) =>
-                        <Form.Item name={text.columnName}>
+                        <Form.Item name={text.key}>
                             <Space size="middle">
                             <input type={'radio'} name={text.key} value={3}/>
                             </Space>
@@ -152,7 +152,7 @@ export default function formInTP_09() {
                     title: '2',
 
                     render: (text) =>
-                        <Form.Item name={text.columnName}>
+                        <Form.Item name={text.key}>
                             <Space size="middle">
                             <input  type={'radio'} name={text.key} value={2}/>
                             </Space>
@@ -174,7 +174,7 @@ export default function formInTP_09() {
                 {
                     title:'1',
                     render: (text) =>
-                        <Form.Item name={text.columnName}>
+                        <Form.Item name={text.key}>
                             <Space size="middle">
                             <input type={'radio'} name={text.key} value={1}/>
                             </Space>

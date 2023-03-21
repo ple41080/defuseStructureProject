@@ -1,54 +1,118 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from '../Components/Navbar';
-import { Space, Table, Tag, Button, Modal, Form, Input, Select } from 'antd';
-import { EyeOutlined, SettingOutlined ,DeleteOutlined} from '@ant-design/icons';
+import { Space, Table, Tag, Button, Modal, Form, Input, Select, message } from 'antd';
+import { EyeOutlined, SettingOutlined, DeleteOutlined } from '@ant-design/icons';
 import FormAddUser from '../Components/FormAddUser';
 import FormEditUser from '../Components/FormEditUser';
-
+import { useRouter } from 'next/router';
+import axiosInstance from '../../utils/axios'
 const size = "large"
 export default function studentMag() {
+    const router = useRouter();
     const iconSize = "large"
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [loading, setLoading] = useState(false);
     const [open, setOpen] = useState(false);
     const [openAdd, setOpenAdd] = useState(false);
     const [openEdit, setOpenEdit] = useState(false);
+    const [data, setData] = useState([]);
+    const [dataEdit, setDataEdit] = useState([]);
+    const [dummyState, rerender] = React.useState(1);
+    const [messageApi, contextHolder] = message.useMessage();
+    const [searchText, setsearchText] = useState("");
+    useEffect(() => {
+        axiosInstance.get('users/allUsers')
+            .then(function (response) {
+                console.log(response)
+                setData(response.data)
+
+            })
+    }, [dummyState])
+
+    useEffect(() => {
+        rerender(dummyState + 1);
+        setOpenEdit(false);
+        setOpenAdd(false);
+    }, [router])
+
+    const showModal2 = () => {
+        setOpenAdd(true);
+    };
+    const handleOkAdd = () => {
+        setOpenAdd(false);
+    };
+    const handleCancelAdd = () => {
+        setOpenAdd(false);
+    };
+
+    const showModalEdit = (id) => {
+
+        console.log(id)
+        axiosInstance.get('users/oneUsers/' + id)
+            .then(function (response) {
+                console.log(response)
+                setDataEdit(response.data)
+
+            })
+        rerender(dummyState + 1);
+        setOpenEdit(true);
+    };
+    const handleOkEdit = () => {
+        setOpenEdit(false);
+    };
+    const handleCancelEdit = () => {
+        setOpenEdit(false);
+    };
+
     const columns = [
         {
-            title: 'Name',
-            dataIndex: 'name',
+            title: 'ชื่อ-นามสกุล',
             key: 'name',
-            render: (text) => <a>{text}</a>,
-        },
-        {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
-        },
-        {
-            title: 'branch',
-            dataIndex: 'branch',
-            key: 'branch',
-        },
-        {
-            title: 'ดูข้อมูล',
-            key: 'actionInfo',
-            width: "10%",
-            render: (_, record) => (
+            sorter: true,
+            render: (_, record) => {
+                return <text>{record.fname_TH + " " + record.lname_TH}</text>
+            },
+            filteredValue: [searchText],
+            onFilter: (value, record) => {
+                return (
 
-                <Button icon={<EyeOutlined />} className={' bg-sky-500'} onClick={showModal} type="primary">
-                    Info
-                </Button>
+                    String(record.fname_TH)
+                        .toLowerCase()
+                        .includes(value.toLowerCase()) ||
+                    String(record.lname_TH)
+                        .toLowerCase()
+                        .includes(value.toLowerCase())
 
-            ),
+                );
+
+            },
         },
+        {
+            title: 'ระดับผู้ใช้งาน',
+            key: 'userLevel',
+            render: (text) =>
+                <text>{text.userLevelJoin.level_name}</text>
+            ,
+        },
+        // {
+        //     title: 'ดูข้อมูล',
+        //     key: 'actionInfo',
+        //     width: "10%",
+        //     render: (_, record) => (
+
+        //         <Button icon={<EyeOutlined />} className={' bg-sky-500'} onClick={showModal} type="primary">
+        //             Info
+        //         </Button>
+
+        //     ),
+        // },
         {
             title: 'แก้ไข',
             key: 'actionEdit',
             width: "10%",
             render: (_, record) => (
 
-                <Button icon={<SettingOutlined />} className={' bg-yellow-300'} onClick={showModalEdit} type="primary">
+                <Button icon={<SettingOutlined />} className={' bg-yellow-300'} onClick={(e) => showModalEdit(record.id)} type="primary">
                     Edit
                 </Button>
 
@@ -60,71 +124,27 @@ export default function studentMag() {
             width: "10%",
             render: (_, record) => (
 
-                <Button icon={<DeleteOutlined />} className={'bg-red-600'} type="primary">
+                <Button icon={<DeleteOutlined />} onClick={(e) => { if (window.confirm("ยืนยันการลบข้อมูล")) { sendDelete(record.id) } }} className={'bg-red-600'} type="primary">
                     Delete
                 </Button>
 
             ),
         },
     ];
-    const data = [  //Make data
-        {
-            key: '1',
-            name: 'John Brown',
-            age: 22,
-            branch: 'Computer Science',
 
-        },
-
-    ];
-    const showModal = () => {
-        setOpen(true);
-    };
-    const handleOk = () => {
-        // setLoading(true);
-        // setTimeout(() => {
-        //     setLoading(false);
-        //     setOpen(false);
-        // }, 3000);
-        setOpen(false);
-    };
-    const handleCancel = () => {
-        setOpen(false);
-    };
-
-
-    const showModal2 = () => {
-        setOpenAdd(true);
-    };
-    const handleOkAdd = () => {
-        // setLoading(true);
-        // setTimeout(() => {
-        //     setLoading(false);
-        //     setOpen(false);
-        // }, 3000);
-        setOpenAdd(false);
-    };
-    const handleCancelAdd = () => {
-        setOpenAdd(false);
-    };
-
-    const showModalEdit = () => {
-        setOpenEdit(true);
-    };
-    const handleOkEdit = () => {
-        // setLoading(true);
-        // setTimeout(() => {
-        //     setLoading(false);
-        //     setOpen(false);
-        // }, 3000);
-        setOpenEdit(false);
-    };
-    const handleCancelEdit = () => {
-        setOpenEdit(false);
-    };
+    const sendDelete = (id) => {
+        axiosInstance.delete('users/deleteUsers/' + id)
+            .then(function (response) {
+                messageApi.open({
+                    type: 'success',
+                    content: 'ลบข้อมูลเรียบร้อย',
+                });
+            })
+        rerender(dummyState + 1);
+    }
 
     return (
-        <>
+        <>{contextHolder}
             <Navbar />
             <header className="bg-white shadow">
                 <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
@@ -133,17 +153,30 @@ export default function studentMag() {
             </header>
             <main>
                 <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-                    <div className=' float-right'>
-                        <button type="button" onClick={showModal2} className=" mr-5 text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                    <div className='mr-5 float-right'>
+                        <button type="button" onClick={showModal2} className="  text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
                             เพิ่มผู้ใช้งาน
                         </button>
+                    </div>
+                    <div className='w-full px-2 my-3'>
+                        <Input
+                            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                            placeholder="ค้นหารายชื่อผู้ใช้งาน"
+                            size={size}
+                            onSearch={(value) => {
+                                setsearchText(value);
+                            }}
+                            onChange={(e) => {
+                                setsearchText(e.target.value);
+                            }}
+                        />
                     </div>
                     <Table columns={columns} dataSource={data} style={{ overflow: "auto" }} />
                 </div>
             </main>
 
             {/* //Info content */}
-            <Modal
+            {/* <Modal
                 width={"90%"}
                 open={open}
                 title="Title"
@@ -151,12 +184,7 @@ export default function studentMag() {
                 onCancel={handleCancel}
                 footer={[
 
-                    <button onClick={handleCancel} type="button" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        Cancel
-                    </button>,
-                    <button onClick={handleOk} type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        Submit
-                    </button>
+                
 
                 ]}
             >
@@ -165,7 +193,7 @@ export default function studentMag() {
                 <p>Some contents...</p>
                 <p>Some contents...</p>
                 <p>Some contents...</p>
-            </Modal>
+            </Modal> */}
 
             {/* //Add content */}
             <Modal
@@ -176,12 +204,9 @@ export default function studentMag() {
                 onCancel={handleCancelAdd}
                 footer={[
 
-                    <button onClick={handleCancelAdd} type="button" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        Cancel
-                    </button>
                 ]}
             >
-                <FormAddUser/>
+                <FormAddUser />
             </Modal>
 
             {/* Edit contents */}
@@ -192,15 +217,10 @@ export default function studentMag() {
                 onOk={handleOkEdit}
                 onCancel={handleCancelEdit}
                 footer={[
-                    <button onClick={handleCancelEdit} type="button" className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        Cancel
-                    </button>,
-                    <button onClick={handleOkEdit} type="button" className="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                        Submit
-                    </button>
+
                 ]}
             >
-              <FormEditUser/>
+                <FormEditUser data={dataEdit} />
             </Modal>
 
         </>
